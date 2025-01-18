@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
-const { userRouter } = require("./routes");
+const { userRouter, bookRouter } = require("./routes");
 
 const app = express();
 
@@ -13,6 +13,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/user", userRouter);
+app.use("/api/book", bookRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });

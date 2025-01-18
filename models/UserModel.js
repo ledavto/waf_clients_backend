@@ -15,7 +15,7 @@ const userSchema = new Schema(
       type: String,
     },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false, timestamps: false }
 );
 
 //Для обработки ошибок валидации схемы и изменения статуса ошибки с 500 на 400

@@ -25,6 +25,12 @@ const fetchUsers = ctrlWrapper(async (req, res) => {
   res.status(201).json(listUsers);
 });
 
+const fetchBussinesUsers = ctrlWrapper(async (req, res) => {
+  const listBussinesUsers = await User.find({ typeUser: "business" });
+
+  res.status(201).json(listBussinesUsers);
+});
+
 const fetchUserById = ctrlWrapper(async (req, res) => {
   const { id } = req.params;
 
@@ -32,4 +38,29 @@ const fetchUserById = ctrlWrapper(async (req, res) => {
 
   res.status(201).json(user);
 });
-module.exports = { addUser, fetchUsers, fetchUserById };
+
+const deleteUser = ctrlWrapper(async (req, res) => {
+  const { id } = req.params;
+
+  const user = await User.findByIdAndDelete(id);
+
+  res.status(201).json(user);
+});
+
+const updateUser = ctrlWrapper(async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+
+  const user = await User.findByIdAndUpdate(id, name);
+
+  res.status(201).json(user);
+});
+
+module.exports = {
+  addUser,
+  fetchUsers,
+  fetchUserById,
+  fetchBussinesUsers,
+  deleteUser,
+  updateUser,
+};
