@@ -15,20 +15,21 @@ const createBook = ctrlWrapper(async (req, res) => {
 //   res.status(201).json(listUsers);
 // });
 
-// const fetchUserById = ctrlWrapper(async (req, res) => {
-//   const { id } = req.params;
+const fetchBookByUserId = ctrlWrapper(async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
 
-//   const user = await User.findById(id);
+  const user = await Book.find({ clientId: id });
 
-//   res.status(201).json(user);
-// });
+  res.status(201).json(user);
+});
 
 const deleteBook = ctrlWrapper(async (req, res) => {
   const { id } = req.params;
 
   const book = await Book.findByIdAndDelete(id);
 
-  res.status(201).json(user);
+  res.status(201).json(book);
 });
 
 const updateBook = ctrlWrapper(async (req, res) => {
@@ -42,7 +43,7 @@ const updateBook = ctrlWrapper(async (req, res) => {
 module.exports = {
   createBook,
   // cancelBook,
-  // fetchUserById,
+  fetchBookByUserId,
   deleteBook,
   updateBook,
 };

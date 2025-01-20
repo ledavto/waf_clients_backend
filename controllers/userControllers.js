@@ -49,9 +49,9 @@ const deleteUser = ctrlWrapper(async (req, res) => {
 
 const updateUser = ctrlWrapper(async (req, res) => {
   const { id } = req.params;
-  const { name } = req.body;
+  // const { name } = req.body;
 
-  const user = await User.findByIdAndUpdate(id, name);
+  const user = await User.findByIdAndUpdate(id, req.body);
 
   res.status(201).json(user);
 });

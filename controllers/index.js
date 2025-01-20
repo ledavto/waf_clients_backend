@@ -6,7 +6,12 @@ const {
   deleteUser,
   updateUser,
 } = require("./userControllers");
-const { createBook, deleteBook, updateBook } = require("./bookControllers");
+const {
+  createBook,
+  deleteBook,
+  updateBook,
+  fetchBookByUserId,
+} = require("./bookControllers");
 
 module.exports = {
   addUser,
@@ -18,4 +23,5 @@ module.exports = {
   createBook,
   deleteBook,
   updateBook,
+  fetchBookByUserId,
 };

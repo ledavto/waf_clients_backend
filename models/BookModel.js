@@ -11,12 +11,12 @@ const bookSchema = new Schema(
       type: String,
       required: [true, "Set businessId of book"],
     },
-    // date: { type: Date },
-    status: {
-      type: String,
-    },
+    dateBook: { type: Date },
+    // status: {
+    //   type: String,
+    // },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false, timestamps: false }
 );
 
 //Для обработки ошибок валидации схемы и изменения статуса ошибки с 500 на 400

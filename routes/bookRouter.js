@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   createBook,
-  // fetchBookByUserId,
+  fetchBookByUserId,
   deleteBook,
   updateBook,
 } = require("../controllers");
@@ -10,7 +10,7 @@ const bookRouter = express.Router();
 
 bookRouter
   .post("/", createBook)
-  // .get("?userId=:id", fetchBookByUserId)
+  .get("/:id", fetchBookByUserId)
   .delete("/:id", deleteBook)
   .patch("/:id", updateBook);
 
