@@ -2,6 +2,7 @@ const app = require("./app");
 const mongoose = require("mongoose");
 require("colors");
 
+console.log(DB_HOST);
 const { DB_HOST, PORT = 3000 } = process.env;
 
 mongoose
